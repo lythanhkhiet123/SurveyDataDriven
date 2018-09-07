@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="RadioButtonUserControl.ascx.cs" Inherits="TestSurvay.Controls.RadioButtonUserControl" %>
+<asp:RadioButtonList ID="RadioButtonList1" runat="server"></asp:RadioButtonList>
