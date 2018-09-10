@@ -10,15 +10,22 @@
     
     <form id="form1" runat="server">
     <div>
-        <asp:Label ID="QuestionText" runat="server" Text=""></asp:Label>
+        <div style="margin-left: auto; margin-right: auto; text-align: center;background-color:orange;height:100px">
+            <asp:Label ID="Label2" runat="server" style="justify-content: center;" Text="AIT Research Survey" Font-Size="Larger"></asp:Label>
+        </div>
+        <br />
+        <br />
+        <asp:Label ID="QuestionText" runat="server" Font-Size="Larger"></asp:Label>
         <br />
         <br />
         <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
         <br />
         <br />
         <br />
-        <asp:Button ID="Button1" runat="server" Text="Next" OnClick="Button1_Click" />
-        <br />
+        <div align="right">
+        <asp:ImageButton ID="ImageButton1" runat="server" Height="94px" ImageUrl="~/Image/Untitled-1.png" OnClick="ImageButton1_Click" Width="167px" />
+        </div>
+            <br />
         <asp:Label ID="Label1" runat="server" ></asp:Label>
     </div>
     </form>

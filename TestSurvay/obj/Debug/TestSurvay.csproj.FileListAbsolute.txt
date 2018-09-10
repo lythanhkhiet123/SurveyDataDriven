@@ -10,3 +10,10 @@ D:\Users\5931\Downloads\TestSurvay\TestSurvay\bin\TestSurvay.pdb
 D:\Users\5931\Downloads\TestSurvay\TestSurvay\obj\Debug\TestSurvay.csprojResolveAssemblyReference.cache
 D:\Users\5931\Downloads\TestSurvay\TestSurvay\obj\Debug\TestSurvay.dll
 D:\Users\5931\Downloads\TestSurvay\TestSurvay\obj\Debug\TestSurvay.pdb
+D:\new\SurveyDataDriven\TestSurvay\bin\TestSurvay.dll.config
+D:\new\SurveyDataDriven\TestSurvay\bin\TestSurvay.dll
+D:\new\SurveyDataDriven\TestSurvay\bin\TestSurvay.pdb
+D:\new\SurveyDataDriven\TestSurvay\obj\Debug\TestSurvay.csprojResolveAssemblyReference.cache
+D:\new\SurveyDataDriven\TestSurvay\obj\Debug\TestSurvay.csproj.CoreCompileInputs.cache
+D:\new\SurveyDataDriven\TestSurvay\obj\Debug\TestSurvay.dll
+D:\new\SurveyDataDriven\TestSurvay\obj\Debug\TestSurvay.pdb

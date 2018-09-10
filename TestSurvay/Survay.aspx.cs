@@ -101,64 +101,7 @@ namespace TestSurvay
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Stack<int> followUpQuestionList = (Stack<int>)Session["FOLLOWUP_ID_LIST"];
-            // Accesss the current question from PlaceHolder
-            Control userControl = PlaceHolder1.FindControl(Session["CURRENT_QUESTION_TYPE"].ToString());
-            int currentQuestionIdInSeeion = followUpQuestionList.Pop();
-            Question question = getNextQuestion(currentQuestionIdInSeeion);
-            if(question.next_q_id != null)
-            {
-                //followUpQuestionList.Push((int)question.next_q_id);            
-                insertNextQuestionID((int)question.next_q_id,followUpQuestionList);
-            }
-            if (userControl is TextBoxUserControl)
-            {
-                TextBoxUserControl textBoxcontr = (TextBoxUserControl)userControl;
-                //Label1.Text = textBoxcontr.getControl().Text;
-                Session["UserAnswer"] = textBoxcontr.getControl().Text;
-                System.Diagnostics.Debug.WriteLine("Answer = " + textBoxcontr.getControl().Text);
-            }
-            else if (userControl is CheckBoxUserControl)
-            {
-                CheckBoxUserControl checkBoxcontr = (CheckBoxUserControl)userControl;
-                string answerVar = "";
-                foreach(ListItem item in checkBoxcontr.getControl().Items) {
-                    if (item.Selected)
-                    {
-                        
-                        answerVar += item.Value + ",";
-
-                        if(item.Attributes["next_q_id"] != null)
-                        {
-                            //followUpQuestionList.Push(int.Parse(item.Attributes["next_q_id"]));
-                            insertNextQuestionID((int.Parse(item.Attributes["next_q_id"])), followUpQuestionList);
-                        }
-
-                        //answerVar += item.Attributes["next_q_id"] + ",";
-                    }
-                }                
-                Session["UserAnswer"] = answerVar;
-                //List<string> next_q = new List<string>(answerVar.Split(','));
-
-                //Session["CURRENT_QUESTION_ID"] = next_q.First();
-                //Response.Redirect("Survay.aspx");
-            }
-            else
-            {
-                // Radio button
-            }
-            if(followUpQuestionList.Count() > 0  )
-            {
-                
-
-
-                Session["CURRENT_QUESTION_ID"] = question.next_q_id;
-                Response.Redirect("Survay.aspx");
-            }
-            else
-            {
-                Response.Redirect("EndSurvey.aspx");
-            }
+           
             
             
         }
@@ -217,6 +160,69 @@ namespace TestSurvay
             if (!followupList.Contains(nextQuestionID))
             {
                 followupList.Push(nextQuestionID);
+            }
+        }
+
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+            Stack<int> followUpQuestionList = (Stack<int>)Session["FOLLOWUP_ID_LIST"];
+            // Accesss the current question from PlaceHolder
+            Control userControl = PlaceHolder1.FindControl(Session["CURRENT_QUESTION_TYPE"].ToString());
+            int currentQuestionIdInSeeion = followUpQuestionList.Pop();
+            Question question = getNextQuestion(currentQuestionIdInSeeion);
+            if (question.next_q_id != null)
+            {
+                //followUpQuestionList.Push((int)question.next_q_id);            
+                insertNextQuestionID((int)question.next_q_id, followUpQuestionList);
+            }
+            if (userControl is TextBoxUserControl)
+            {
+                TextBoxUserControl textBoxcontr = (TextBoxUserControl)userControl;
+                //Label1.Text = textBoxcontr.getControl().Text;
+                Session["UserAnswer"] = textBoxcontr.getControl().Text;
+                System.Diagnostics.Debug.WriteLine("Answer = " + textBoxcontr.getControl().Text);
+            }
+            else if (userControl is CheckBoxUserControl)
+            {
+                CheckBoxUserControl checkBoxcontr = (CheckBoxUserControl)userControl;
+                string answerVar = "";
+                foreach (ListItem item in checkBoxcontr.getControl().Items)
+                {
+                    if (item.Selected)
+                    {
+
+                        answerVar += item.Value + ",";
+
+                        if (item.Attributes["next_q_id"] != null)
+                        {
+                            //followUpQuestionList.Push(int.Parse(item.Attributes["next_q_id"]));
+                            insertNextQuestionID((int.Parse(item.Attributes["next_q_id"])), followUpQuestionList);
+                        }
+
+                        //answerVar += item.Attributes["next_q_id"] + ",";
+                    }
+                }
+                Session["UserAnswer"] = answerVar;
+                //List<string> next_q = new List<string>(answerVar.Split(','));
+
+                //Session["CURRENT_QUESTION_ID"] = next_q.First();
+                //Response.Redirect("Survay.aspx");
+            }
+            else
+            {
+                // Radio button
+            }
+            if (followUpQuestionList.Count() > 0)
+            {
+
+
+
+                Session["CURRENT_QUESTION_ID"] = question.next_q_id;
+                Response.Redirect("Survay.aspx");
+            }
+            else
+            {
+                Response.Redirect("EndSurvey.aspx");
             }
         }
     }
