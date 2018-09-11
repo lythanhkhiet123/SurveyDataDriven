@@ -13,11 +13,36 @@ namespace TestSurvay
     public partial class Survay : System.Web.UI.Page
     {
         //private static int currentQuestionId = 1;
+        // get IP address
+        protected string GetIPAddress()
+        {
+            System.Web.HttpContext context = System.Web.HttpContext.Current; 
+            string ipAddress = context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+
+            if (!string.IsNullOrEmpty(ipAddress))
+            {
+                string[] addresses = ipAddress.Split(',');
+                if (addresses.Length != 0)
+                {
+                    return addresses[0];
+                }
+            }
+
+            return context.Request.ServerVariables["REMOTE_ADDR"];
+        }
+        protected DateTime GetUserDateDidSurvey()
+        {
+            DateTime dateTime = DateTime.Now;
+       
+            return dateTime;
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-          
 
+            string ip = GetIPAddress();
+            DateTime date = GetUserDateDidSurvey();
+            Response.Write("<script>alert('"+date+"');</script>");
             Object userAnser = Session["UserAnswer"];
             if (userAnser != null)
             {

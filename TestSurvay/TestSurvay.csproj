@@ -64,7 +64,11 @@
     <Content Include="Controls\TextBoxUserControl.ascx" />
     <Content Include="EndSurvey.aspx" />
     <Content Include="Image\Untitled-1.png" />
+    <Content Include="Image\what5.png" />
+    <Content Include="Menu.aspx" />
     <Content Include="registerPage.aspx" />
+    <Content Include="resultPage.aspx" />
+    <Content Include="searchPage.aspx" />
     <Content Include="Survay.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -97,6 +101,13 @@
     <Compile Include="EndSurvey.aspx.designer.cs">
       <DependentUpon>EndSurvey.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Menu.aspx.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Menu.aspx.designer.cs">
+      <DependentUpon>Menu.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Model\Question.cs" />
     <Compile Include="Model\QuestionOption.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +117,20 @@
     </Compile>
     <Compile Include="registerPage.aspx.designer.cs">
       <DependentUpon>registerPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="resultPage.aspx.cs">
+      <DependentUpon>resultPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="resultPage.aspx.designer.cs">
+      <DependentUpon>resultPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="searchPage.aspx.cs">
+      <DependentUpon>searchPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="searchPage.aspx.designer.cs">
+      <DependentUpon>searchPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Survay.aspx.cs">
       <DependentUpon>Survay.aspx</DependentUpon>

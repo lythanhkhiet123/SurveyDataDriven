@@ -17,3 +17,9 @@ D:\new\SurveyDataDriven\TestSurvay\obj\Debug\TestSurvay.csprojResolveAssemblyRef
 D:\new\SurveyDataDriven\TestSurvay\obj\Debug\TestSurvay.csproj.CoreCompileInputs.cache
 D:\new\SurveyDataDriven\TestSurvay\obj\Debug\TestSurvay.dll
 D:\new\SurveyDataDriven\TestSurvay\obj\Debug\TestSurvay.pdb
+d:\Users\5931\Desktop\SurveyDataDriven\TestSurvay\bin\TestSurvay.dll.config
+d:\Users\5931\Desktop\SurveyDataDriven\TestSurvay\bin\TestSurvay.dll
+d:\Users\5931\Desktop\SurveyDataDriven\TestSurvay\bin\TestSurvay.pdb
+d:\Users\5931\Desktop\SurveyDataDriven\TestSurvay\obj\Debug\TestSurvay.csprojResolveAssemblyReference.cache
+d:\Users\5931\Desktop\SurveyDataDriven\TestSurvay\obj\Debug\TestSurvay.dll
+d:\Users\5931\Desktop\SurveyDataDriven\TestSurvay\obj\Debug\TestSurvay.pdb

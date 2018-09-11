@@ -13,12 +13,14 @@
         <div style="margin-left: auto; margin-right: auto; text-align: center;background-color:orange;height:100px">
             <asp:Label ID="Label2" runat="server" style="justify-content: center;" Text="AIT Research Survey" Font-Size="Larger"></asp:Label>
         </div>
+        <div align="center">
         <br />
         <br />
         <asp:Label ID="QuestionText" runat="server" Font-Size="Larger"></asp:Label>
         <br />
         <br />
         <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+            </div>
         <br />
         <br />
         <br />
