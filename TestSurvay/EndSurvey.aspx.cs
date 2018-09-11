@@ -11,7 +11,11 @@ namespace TestSurvay
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            var list = (List<String>)Session["AnswerList"];
+            foreach(var answer in list)
+            {
+                System.Diagnostics.Debug.WriteLine(answer);
+            }
         }
     }
 }

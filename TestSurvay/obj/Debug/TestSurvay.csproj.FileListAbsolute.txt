@@ -23,3 +23,10 @@ d:\Users\5931\Desktop\SurveyDataDriven\TestSurvay\bin\TestSurvay.pdb
 d:\Users\5931\Desktop\SurveyDataDriven\TestSurvay\obj\Debug\TestSurvay.csprojResolveAssemblyReference.cache
 d:\Users\5931\Desktop\SurveyDataDriven\TestSurvay\obj\Debug\TestSurvay.dll
 d:\Users\5931\Desktop\SurveyDataDriven\TestSurvay\obj\Debug\TestSurvay.pdb
+C:\Users\VincentLy\Desktop\SurveyDataDriven\TestSurvay\bin\TestSurvay.dll.config
+C:\Users\VincentLy\Desktop\SurveyDataDriven\TestSurvay\bin\TestSurvay.dll
+C:\Users\VincentLy\Desktop\SurveyDataDriven\TestSurvay\bin\TestSurvay.pdb
+C:\Users\VincentLy\Desktop\SurveyDataDriven\TestSurvay\obj\Debug\TestSurvay.csprojResolveAssemblyReference.cache
+C:\Users\VincentLy\Desktop\SurveyDataDriven\TestSurvay\obj\Debug\TestSurvay.csproj.CoreCompileInputs.cache
+C:\Users\VincentLy\Desktop\SurveyDataDriven\TestSurvay\obj\Debug\TestSurvay.dll
+C:\Users\VincentLy\Desktop\SurveyDataDriven\TestSurvay\obj\Debug\TestSurvay.pdb

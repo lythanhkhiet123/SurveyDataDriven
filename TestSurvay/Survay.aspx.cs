@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using TestSurvay.Model;
 using System.Data.SqlClient;
 using TestSurvay.Controls;
+using System.Collections;
 
 namespace TestSurvay
 {
@@ -14,6 +15,7 @@ namespace TestSurvay
     {
         //private static int currentQuestionId = 1;
         // get IP address
+      
         protected string GetIPAddress()
         {
             System.Web.HttpContext context = System.Web.HttpContext.Current; 
@@ -39,96 +41,106 @@ namespace TestSurvay
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
             string ip = GetIPAddress();
             DateTime date = GetUserDateDidSurvey();
-            Response.Write("<script>alert('"+date+"');</script>");
+            //Response.Write("<script>alert('" + date + "');</script>");
             Object userAnser = Session["UserAnswer"];
             if (userAnser != null)
             {
                 Label1.Text = Session["UserAnswer"].ToString();
+                
+             
+
             }
-            Stack<int> followupQuestions = (Stack<int>) Session["FOLLOWUP_ID_LIST"];
-           if(followupQuestions == null)
-           {
-               followupQuestions = new Stack<int>();
-               followupQuestions.Push(1);
-               Session["FOLLOWUP_ID_LIST"] = followupQuestions;
-           }
+            Stack<int> followupQuestions = (Stack<int>)Session["FOLLOWUP_ID_LIST"];
+            if (followupQuestions == null)
+            {
+                followupQuestions = new Stack<int>();
+                followupQuestions.Push(1);
+                Session["FOLLOWUP_ID_LIST"] = followupQuestions;
+            }
+            try
+            {
 
-            int currentQuestionIdInSeeion = followupQuestions.Peek();
-            //Session["CURRENT_QUESTION_ID"] = currentQuestionIdInSeeion;
-            
 
-          
+                int currentQuestionIdInSeeion = followupQuestions.Peek();
+                //Session["CURRENT_QUESTION_ID"] = currentQuestionIdInSeeion;
 
-            Question question = getNextQuestion(currentQuestionIdInSeeion);
 
-          if (question != null)
-          {
-              QuestionText.Text = question.text;
-              if (question.type.Equals("text"))
-              {
-                  // We gonna create text box question control
 
-         
-                  TextBoxUserControl textBox = (TextBoxUserControl)LoadControl("~/Controls/TextBoxUserControl.ascx");
-                  textBox.ID = "AnswerTxtBox";
-                  PlaceHolder1.Controls.Add(textBox);
-                  Session["CURRENT_QUESTION_TYPE"] = textBox.ID;
-              }
-              else if (question.type.Equals("radio"))
-              {
-                  // We gonna create radio button question control
-                  RadioButtonUserControl radioBtnQuestion = (RadioButtonUserControl)LoadControl("~/Controls/RadioButtonUserControl.ascx");
-                  radioBtnQuestion.ID = "RadioButton";
-              
-                  Session["CURRENT_QUESTION_TYPE"] = radioBtnQuestion.ID;
 
-                  List<QuestionOption> questionOptions = getQuestionOptions(currentQuestionIdInSeeion);
+                Question question = getNextQuestion(currentQuestionIdInSeeion);
 
-                  foreach(QuestionOption option in  questionOptions) {
-                      ListItem newItem = new ListItem();
-                      newItem.Text = option.text;
-                      radioBtnQuestion.getControl().Items.Add(newItem);
-                  }
+                if (question != null)
+                {
+                    QuestionText.Text = question.text;
+                    if (question.type.Equals("text"))
+                    {
+                        // We gonna create text box question control
 
-                  PlaceHolder1.Controls.Add(radioBtnQuestion);
-                  
-              }
-              else if (question.type.Equals("checkbox"))
-              {
-                  // We gonna create check box question control
-                  CheckBoxUserControl checkBoxQuestion = (CheckBoxUserControl)LoadControl("~/Controls/CheckBoxUserControl.ascx");
-                  checkBoxQuestion.ID = "CheckBoxButton";
-                  Session["CURRENT_QUESTION_TYPE"] = checkBoxQuestion.ID;
-                  //CheckBoxList checkBoxQuestion = new CheckBoxList();
-                  List<QuestionOption> questionOptions = getQuestionOptions(currentQuestionIdInSeeion);
 
-                  foreach (QuestionOption option in questionOptions)
-                  {
-                      
-                      ListItem newItem = new ListItem();
-                      newItem.Value = option.id.ToString();
-                      newItem.Text = option.text;
-                      if(option.next_q_id != null)
-                      {
-                          newItem.Attributes["next_q_id"] = option.next_q_id.ToString();
-                      }
-                      checkBoxQuestion.getControl().Items.Add(newItem);
-                  }
-                  
-                  PlaceHolder1.Controls.Add(checkBoxQuestion);
-              }
-          }
-            
-        }
+                        TextBoxUserControl textBox = (TextBoxUserControl)LoadControl("~/Controls/TextBoxUserControl.ascx");
+                        textBox.ID = "AnswerTxtBox";
+                        PlaceHolder1.Controls.Add(textBox);
+                        Session["CURRENT_QUESTION_TYPE"] = textBox.ID;
+                    }
+                    else if (question.type.Equals("radio"))
+                    {
+                        // We gonna create radio button question control
+                        RadioButtonUserControl radioBtnQuestion = (RadioButtonUserControl)LoadControl("~/Controls/RadioButtonUserControl.ascx");
+                        radioBtnQuestion.ID = "RadioButton";
+
+                        Session["CURRENT_QUESTION_TYPE"] = radioBtnQuestion.ID;
+
+                        List<QuestionOption> questionOptions = getQuestionOptions(currentQuestionIdInSeeion);
+
+                        foreach (QuestionOption option in questionOptions) {
+                            ListItem newItem = new ListItem();
+                            newItem.Text = option.text;
+                            radioBtnQuestion.getControl().Items.Add(newItem);
+                        }
+
+                        PlaceHolder1.Controls.Add(radioBtnQuestion);
+
+                    }
+                    else if (question.type.Equals("checkbox"))
+                    {
+                        // We gonna create check box question control
+                        CheckBoxUserControl checkBoxQuestion = (CheckBoxUserControl)LoadControl("~/Controls/CheckBoxUserControl.ascx");
+                        checkBoxQuestion.ID = "CheckBoxButton";
+                        Session["CURRENT_QUESTION_TYPE"] = checkBoxQuestion.ID;
+                        //CheckBoxList checkBoxQuestion = new CheckBoxList();
+                        List<QuestionOption> questionOptions = getQuestionOptions(currentQuestionIdInSeeion);
+
+                        foreach (QuestionOption option in questionOptions)
+                        {
+
+                            ListItem newItem = new ListItem();
+                            newItem.Value = option.id.ToString();
+                            newItem.Text = option.text;
+                            if (option.next_q_id != null)
+                            {
+                                newItem.Attributes["next_q_id"] = option.next_q_id.ToString();
+                            }
+                            checkBoxQuestion.getControl().Items.Add(newItem);
+                        }
+
+                        PlaceHolder1.Controls.Add(checkBoxQuestion);
+                    }
+                }
+
+            }catch(Exception error)
+            {
+                Response.Write("<script>alert('" + error + "');</script>");
+            }
+            }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-           
-            
-            
+          
+
+
         }
 
         private Question getNextQuestion(int currentQuestionId)
@@ -190,6 +202,10 @@ namespace TestSurvay
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
+            try
+            {
+
+            
             Stack<int> followUpQuestionList = (Stack<int>)Session["FOLLOWUP_ID_LIST"];
             // Accesss the current question from PlaceHolder
             Control userControl = PlaceHolder1.FindControl(Session["CURRENT_QUESTION_TYPE"].ToString());
@@ -203,7 +219,7 @@ namespace TestSurvay
             if (userControl is TextBoxUserControl)
             {
                 TextBoxUserControl textBoxcontr = (TextBoxUserControl)userControl;
-                //Label1.Text = textBoxcontr.getControl().Text;
+                Label1.Text = textBoxcontr.getControl().Text;
                 Session["UserAnswer"] = textBoxcontr.getControl().Text;
                 System.Diagnostics.Debug.WriteLine("Answer = " + textBoxcontr.getControl().Text);
             }
@@ -235,20 +251,67 @@ namespace TestSurvay
             }
             else
             {
+                RadioButtonUserControl radioBtnControl = (RadioButtonUserControl)userControl;
+                string answerVar = "";
+                foreach (ListItem item in radioBtnControl.getControl().Items)
+                {
+                    if (item.Selected)
+                    {
+
+                        answerVar += item.Value + ",";
+
+                        if (item.Attributes["next_q_id"] != null)
+                        {
+                            //followUpQuestionList.Push(int.Parse(item.Attributes["next_q_id"]));
+                            insertNextQuestionID((int.Parse(item.Attributes["next_q_id"])), followUpQuestionList);
+                        }
+
+                        //answerVar += item.Attributes["next_q_id"] + ",";
+                    }
+                }
+                Session["UserAnswer"] = answerVar;
                 // Radio button
             }
             if (followUpQuestionList.Count() > 0)
             {
+                    Object userAnser = Session["UserAnswer"];
+                    AnswerList.Add(userAnser.ToString());
 
 
-
-                Session["CURRENT_QUESTION_ID"] = question.next_q_id;
+                    Session["CURRENT_QUESTION_ID"] = question.next_q_id;
                 Response.Redirect("Survay.aspx");
             }
             else
             {
-                Response.Redirect("EndSurvey.aspx");
+
+                    Session["answerList"] = AnswerList;
+                    /*foreach (var answer in AnswerList)
+                    {
+                        System.Diagnostics.Debug.WriteLine(answer);
+                    }*/
+                    Response.Redirect("EndSurvey.aspx");
+                }
+        }
+            catch(Exception error)
+            {
+                Response.Write("<script>alert('" + error + "');</script>");
             }
+        }
+        public List<string> AnswerList
+        {
+            get
+            {
+                if (HttpContext.Current.Session["AnswerList"] == null)
+                {
+                    HttpContext.Current.Session["AnswerList"] = new List<string>();
+                }
+                return HttpContext.Current.Session["AnswerList"] as List<string>;
+            }
+            set
+            {
+                HttpContext.Current.Session["AnswerList"] = value;
+            }
+
         }
     }
 
