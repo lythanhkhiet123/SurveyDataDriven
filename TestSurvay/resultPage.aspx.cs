@@ -13,25 +13,25 @@ namespace TestSurvay
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            using (SqlConnection conn = new SqlConnection("Data Source=SQL5027.site4now.net;Initial Catalog=DB_9AB8B7_D18DDA5931;User Id=DB_9AB8B7_D18DDA5931_admin;Password=np4Y9CJR"))
+            try
             {
-                string sql = Session["sql"].ToString();
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                
-                DataSet data = new DataSet();
-                SqlDataAdapter da = new SqlDataAdapter(sql, conn);
-                conn.Open();
-                da.Fill(data, "Result");
-                DataView dv = data.Tables["Result"].DefaultView;
 
 
-            
+                using (SqlConnection conn = new SqlConnection("Data Source=SQL5027.site4now.net;Initial Catalog=DB_9AB8B7_D18DDA5931;User Id=DB_9AB8B7_D18DDA5931_admin;Password=np4Y9CJR"))
+                {
+                    conn.Open();
+                    string sql = Session["sql"].ToString();
+                    SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    GridView1.DataSource = dt;
+                    GridView1.DataBind();
 
 
-                // Bind the GridView control. 
-                GridView1.DataSource = dv;
-                GridView1.DataBind();
+                }
+            }catch(Exception error)
+            {
+                System.Diagnostics.Debug.WriteLine("Error: " + error);
             }
         }
     }

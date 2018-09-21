@@ -23,7 +23,7 @@
         <br />
         <br />
         <br />
-        <asp:Button ID="Button2" runat="server" Text="Search" Font-Size="Larger" Height="127px" OnClick="Button2_Click" Width="170px" />
+        <asp:Button ID="Button2" runat="server" Text="Login" Font-Size="Larger" Height="127px" OnClick="Button2_Click" Width="170px" />
     
     </div>
     </form>

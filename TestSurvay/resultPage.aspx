@@ -16,7 +16,18 @@
         <asp:Label ID="Label1" runat="server" Font-Size="Larger" Text="Result"></asp:Label>
             <br />
             <br />
-            <asp:GridView ID="GridView1" runat="server">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false">
+                <Columns>
+                    <asp:BoundField DataField="id" HeaderText ="ID" />
+                    <asp:BoundField DataField="q_id" HeaderText ="q_id" />
+                    <asp:BoundField DataField="anwer" HeaderText ="anwer" />
+                    <asp:BoundField DataField="person_answer" HeaderText ="person_answer" />
+                    <asp:BoundField DataField="respondent_ip" HeaderText ="respondent_ip" />
+                    <asp:BoundField DataField="respondent_date" HeaderText ="respondent_date" />
+
+
+
+                </Columns>
             </asp:GridView>
             <br />
             <br />

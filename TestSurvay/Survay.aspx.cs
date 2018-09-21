@@ -35,7 +35,7 @@ namespace TestSurvay
             if (followupQuestions == null)
             {
                 followupQuestions = new Stack<int>();
-                followupQuestions.Push(1);
+                followupQuestions.Push(2);
                 Session["FOLLOWUP_ID_LIST"] = followupQuestions;
             }
             try

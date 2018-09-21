@@ -21,7 +21,7 @@ namespace TestSurvay
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("searchPage.aspx");
+            Response.Redirect("Login.aspx");
         }
     }
 }

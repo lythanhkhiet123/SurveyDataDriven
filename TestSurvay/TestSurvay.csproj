@@ -65,6 +65,7 @@
     <Content Include="EndSurvey.aspx" />
     <Content Include="Image\Untitled-1.png" />
     <Content Include="Image\what5.png" />
+    <Content Include="Login.aspx" />
     <Content Include="Menu.aspx" />
     <Content Include="registerPage.aspx" />
     <Content Include="resultPage.aspx" />
@@ -100,6 +101,13 @@
     </Compile>
     <Compile Include="EndSurvey.aspx.designer.cs">
       <DependentUpon>EndSurvey.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Menu.aspx.cs">
       <DependentUpon>Menu.aspx</DependentUpon>

@@ -19,19 +19,20 @@
         <br />
         
             Name<br />
-            <asp:RadioButton ID="RadioButton1" runat="server" Checked="True" GroupName="search" OnCheckedChanged="RadioButton1_CheckedChanged" />
+            <asp:RadioButton ID="RadioButton1" runat="server" Checked="True" GroupName="search" />
         <asp:TextBox ID="TextBox1" runat="server" Width="624px"></asp:TextBox>
             <br />
         <br />
             Age range&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Gender<br />
-            <asp:RadioButton ID="RadioButton2" runat="server" GroupName="search" />
+            <asp:RadioButton ID="RadioButton2" runat="server" GroupName="search"  />
             <asp:DropDownList ID="DropDownList1" runat="server" Width="250px">
                 <asp:ListItem>&lt;18</asp:ListItem>
                 <asp:ListItem>18-25</asp:ListItem>
                 <asp:ListItem>26-32</asp:ListItem>
                 <asp:ListItem>32&gt;</asp:ListItem>
             </asp:DropDownList>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:RadioButton ID="RadioButton4" runat="server" GroupName="search" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:RadioButton ID="RadioButton4" runat="server" GroupName="search"  />
 &nbsp;<asp:DropDownList ID="DropDownList2" runat="server" Width="250px">
                 <asp:ListItem>Male</asp:ListItem>
                 <asp:ListItem>Female</asp:ListItem>
@@ -40,7 +41,7 @@
             <br />
             <br />
             State<br />
-            <asp:RadioButton ID="RadioButton6" runat="server" GroupName="search" OnCheckedChanged="RadioButton6_CheckedChanged" />
+            <asp:RadioButton ID="RadioButton6" runat="server" GroupName="search"  />
             <asp:DropDownList ID="DropDownList3" runat="server" Width="250px">
                 <asp:ListItem>VIC</asp:ListItem>
                 <asp:ListItem>NSW</asp:ListItem>
@@ -59,17 +60,17 @@
 &nbsp;<br />
             <br />
         Email<br />
-            <asp:RadioButton ID="RadioButton8" runat="server" GroupName="search" />
+            <asp:RadioButton ID="RadioButton8" runat="server" GroupName="search"  />
         <asp:TextBox ID="TextBox11" runat="server" Width="632px"></asp:TextBox>
 &nbsp;<br />
             <br />
         Banks used<br />
-            <asp:RadioButton ID="RadioButton10" runat="server" GroupName="search" />
+            <asp:RadioButton ID="RadioButton10" runat="server" GroupName="search"  />
         <asp:TextBox ID="TextBox15" runat="server" Width="632px"></asp:TextBox>
 &nbsp;<br />
             <br />
         Banks services<br />
-            <asp:RadioButton ID="RadioButton11" runat="server" GroupName="search" />
+            <asp:RadioButton ID="RadioButton11" runat="server" GroupName="search"  />
         <asp:TextBox ID="TextBox16" runat="server" Width="632px"></asp:TextBox>
 &nbsp;<br />
             <br />
