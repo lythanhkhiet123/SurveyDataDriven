@@ -18,7 +18,7 @@
             <br />
         <br />
         
-            Name<br />
+            First name<br />
             <asp:RadioButton ID="RadioButton1" runat="server" Checked="True" GroupName="search" />
         <asp:TextBox ID="TextBox1" runat="server" Width="624px"></asp:TextBox>
             <br />

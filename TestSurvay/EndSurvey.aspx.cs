@@ -58,7 +58,7 @@ namespace TestSurvay
                 System.Diagnostics.Debug.WriteLine("Question: " + list2[i]);
                 using (SqlConnection conn = new SqlConnection("Data Source=SQL5027.site4now.net;Initial Catalog=DB_9AB8B7_D18DDA5931;User Id=DB_9AB8B7_D18DDA5931_admin;Password=np4Y9CJR"))
                 {
-                    string sql = "INSERT INTO Answer (q_id, answer, respondent_id, person_answer,respondent_date) VALUES(" + list2[i] + ",'" + list[i] + "','" + id + "','" + GetIPAddress() + "','" + dateSurvey.ToString("yyyy-MM-dd") + "'); ";
+                    string sql = "INSERT INTO Answer (q_id, anwer, person_answer, respondent_ip,respondent_date) VALUES(" + list2[i] + ",'" + list[i] + "','" + id + "','" + GetIPAddress() + "','" + dateSurvey.ToString("yyyy-MM-dd") + "'); ";
 
                     SqlCommand cmd = new SqlCommand(sql, conn);
                     conn.Open();
