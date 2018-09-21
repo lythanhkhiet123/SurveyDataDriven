@@ -14,6 +14,13 @@
                 <asp:Label ID="Label2" runat="server" Font-Size="Larger" style="justify-content: center;" Text="AIT Research Survey"></asp:Label>
             </div>
         <asp:Label ID="Label1" runat="server" Font-Size="Larger" Text="Result"></asp:Label>
+            <br />
+            <br />
+            <asp:GridView ID="GridView1" runat="server">
+            </asp:GridView>
+            <br />
+            <br />
+            <br />
         </div>
     </div>
     </form>

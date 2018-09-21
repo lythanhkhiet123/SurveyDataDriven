@@ -16,34 +16,12 @@ namespace TestSurvay
         //private static int currentQuestionId = 1;
         // get IP address
       
-        protected string GetIPAddress()
-        {
-            System.Web.HttpContext context = System.Web.HttpContext.Current; 
-            string ipAddress = context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
-
-            if (!string.IsNullOrEmpty(ipAddress))
-            {
-                string[] addresses = ipAddress.Split(',');
-                if (addresses.Length != 0)
-                {
-                    return addresses[0];
-                }
-            }
-
-            return context.Request.ServerVariables["REMOTE_ADDR"];
-        }
-        protected DateTime GetUserDateDidSurvey()
-        {
-            DateTime dateTime = DateTime.Now;
-       
-            return dateTime;
-        }
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
            
-            string ip = GetIPAddress();
-            DateTime date = GetUserDateDidSurvey();
+           
             //Response.Write("<script>alert('" + date + "');</script>");
             Object userAnser = Session["UserAnswer"];
             if (userAnser != null)
@@ -71,7 +49,7 @@ namespace TestSurvay
 
 
                 Question question = getNextQuestion(currentQuestionIdInSeeion);
-
+                //QuestionList.Add(currentQuestionIdInSeeion.ToString());
                 if (question != null)
                 {
                     QuestionText.Text = question.text;
@@ -216,7 +194,10 @@ namespace TestSurvay
                 //followUpQuestionList.Push((int)question.next_q_id);            
                 insertNextQuestionID((int)question.next_q_id, followUpQuestionList);
             }
-            if (userControl is TextBoxUserControl)
+
+                QuestionList.Add(currentQuestionIdInSeeion.ToString());
+
+                if (userControl is TextBoxUserControl)
             {
                 TextBoxUserControl textBoxcontr = (TextBoxUserControl)userControl;
                 Label1.Text = textBoxcontr.getControl().Text;
@@ -232,7 +213,7 @@ namespace TestSurvay
                     if (item.Selected)
                     {
 
-                        answerVar += item.Value + ",";
+                        answerVar += item.Text + ",";
 
                         if (item.Attributes["next_q_id"] != null)
                         {
@@ -258,7 +239,7 @@ namespace TestSurvay
                     if (item.Selected)
                     {
 
-                        answerVar += item.Value + ",";
+                        answerVar += item.Value ;
 
                         if (item.Attributes["next_q_id"] != null)
                         {
@@ -276,13 +257,15 @@ namespace TestSurvay
             {
                     Object userAnser = Session["UserAnswer"];
                     AnswerList.Add(userAnser.ToString());
-
+                    
 
                     Session["CURRENT_QUESTION_ID"] = question.next_q_id;
                 Response.Redirect("Survay.aspx");
             }
             else
             {
+                    Object userAnser = Session["UserAnswer"];
+                    AnswerList.Add(userAnser.ToString());
 
                     Session["answerList"] = AnswerList;
                     /*foreach (var answer in AnswerList)
@@ -310,6 +293,22 @@ namespace TestSurvay
             set
             {
                 HttpContext.Current.Session["AnswerList"] = value;
+            }
+
+        }
+        public List<string> QuestionList
+        {
+            get
+            {
+                if (HttpContext.Current.Session["QuestionList"] == null)
+                {
+                    HttpContext.Current.Session["QuestionList"] = new List<string>();
+                }
+                return HttpContext.Current.Session["QuestionList"] as List<string>;
+            }
+            set
+            {
+                HttpContext.Current.Session["QuestionList"] = value;
             }
 
         }
